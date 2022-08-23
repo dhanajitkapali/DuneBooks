@@ -7,11 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BookListViewController: UIViewController {
 
+    private var viewModel : BookListViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        viewModel = BookListViewModel()
     }
 
 

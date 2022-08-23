@@ -10,6 +10,7 @@ import Foundation
 //Communication : ViewController -> ViewModel
 protocol BookListViewModelInput {
     //You may use functions()
+    func loadBookList()
 }
 
 //Communication : ViewModel -> ViewController
@@ -34,7 +35,11 @@ class BookListViewModel {
 
 
 extension BookListViewModel : BookListViewModelInput {
-    
+    func loadBookList() {
+        useCase.execute { result in
+            print(result.count)
+        }
+    }
 }
 
 extension BookListViewModel : BookListViewModelOutput {

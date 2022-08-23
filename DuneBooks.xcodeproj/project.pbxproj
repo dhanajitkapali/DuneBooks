@@ -122,6 +122,7 @@
 		01F0053228B4FCBD00B82BDB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				01F0055D28B50CE000B82BDB /* PersistanceStorage */,
 				01F0053D28B4FD2800B82BDB /* Repositories */,
 				01F0053C28B4FD2000B82BDB /* Network */,
 				01F0053B28B4FD1400B82BDB /* DataMapping */,
@@ -255,6 +256,13 @@
 				01F0054C28B4FECC00B82BDB /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		01F0055D28B50CE000B82BDB /* PersistanceStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PersistanceStorage;
 			sourceTree = "<group>";
 		};
 		D3EBF59239B953556F45D4B1 /* Pods */ = {

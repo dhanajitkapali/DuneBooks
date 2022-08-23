@@ -19,19 +19,20 @@ class DefaultBookListRepository {
 extension DefaultBookListRepository : BookListRepository{
     
     //SampleCode, i.e. how to get data from API
-    func __SampleMethod__fetchData() {
-        let endPoint = BookListAPIEndPoint.__SampleMethod__getSomeEndPoint()
-        networkService?.getAPICall(url: endPoint, parameters: [:], headers: [:], responseClass: BookListModel.self, completion: { result in
+    func getBookListData(completion: @escaping (Result<[BookListResponseDTO], Error>) -> Void) {
+        print("Making API call")
+        let endPoint = BookListAPIEndPoint.getBookListEndPoint()
+        networkService?.getAPICall(url: endPoint, parameters: [:], headers: [:], responseClass: [BookListResponseDTO].self, completion: { result in
             switch result{
             case .success(let dataModel):
-                print(dataModel)
+                completion(.success(dataModel))
+                //print(dataModel)
             case .failure(let error):
-                print(error.localizedDescription)
+                completion(.failure(error))
+                //print(error.localizedDescription)
             }
         })
     }
-    
-    
 
 }
 

@@ -19,6 +19,8 @@ class BookListViewController: UIViewController {
         
         viewModel = BookListViewModel()
         bookListTableView.dataSource = self
+        
+        viewModel.loadBookList()
     }
 
 

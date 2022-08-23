@@ -9,8 +9,11 @@ import Foundation
 
 struct BookListAPIEndPoint {
     
-    static func __SampleMethod__getSomeEndPoint() -> String {
-        return ""
+//    https://the-dune-api.herokuapp.com/books/10
+//    https://the-dune-api.herokuapp.com/books/id/22
+    
+    static func getBookListEndPoint() -> String {
+        return "https://the-dune-api.herokuapp.com/books/10"
     }
     
 }

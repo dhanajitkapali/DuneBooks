@@ -7,6 +7,13 @@
 
 import Foundation
 
-struct BookListModel : Codable {
+struct BookListModel {
+    let id : String
+    let title : String
+    //let author: String
+    let year : String
+}
+
+struct Book {
     
 }

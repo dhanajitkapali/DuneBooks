@@ -10,5 +10,5 @@ import Foundation
 protocol BookListRepository {
     
     //UseCase will use this method to get some data
-    func __SampleMethod__fetchData()
+    func getBookListData(completion : @escaping (Result<[BookListResponseDTO], Error>) -> Void)
 }

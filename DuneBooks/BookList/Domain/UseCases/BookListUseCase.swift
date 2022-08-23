@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BookListUseCase {
-    func __SampleMethod__execute<T, K>(requestValue : T, completion : @escaping (Result<K, Error>) -> Void)
+    func execute(completion : @escaping ([BookListModel]) -> Void)
 }
 
 class DefaultBookListUseCase {
@@ -22,8 +22,18 @@ class DefaultBookListUseCase {
 
 
 extension DefaultBookListUseCase : BookListUseCase {
-    
-    func __SampleMethod__execute<T, K>(requestValue: T, completion: @escaping (Result<K, Error>) -> Void) {
-        
+    func execute(completion: @escaping ([BookListModel]) -> Void) {
+        repo.getBookListData { result in
+            switch result {
+            case .success(let theBookList):
+                let bookList = theBookList.map{
+                    book in
+                    BookListModel(id: book.id, title: book.title, year: book.year)
+                }
+                completion(bookList)
+            case .failure(let errot):
+                print(errot.localizedDescription)
+            }
+        }
     }
 }

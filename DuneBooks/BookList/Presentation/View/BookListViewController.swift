@@ -21,6 +21,10 @@ class BookListViewController: UIViewController {
         bookListTableView.dataSource = self
         
         viewModel.loadBookList()
+        viewModel.updateBookList = {
+            print("LoL")
+            self.bookListTableView.reloadData()
+        }
     }
 
 
@@ -29,12 +33,13 @@ class BookListViewController: UIViewController {
 
 extension BookListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookListSize
+        return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = bookListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "LoL"
+        let model = viewModel.items[indexPath.row]
+        cell.textLabel?.text = model.title
         return cell
     }
     

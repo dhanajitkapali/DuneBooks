@@ -16,12 +16,17 @@ protocol BookListViewModelInput {
 //Communication : ViewModel -> ViewController
 protocol BookListViewModelOutput {
     //You may use varibales/closures
+    var items : [BookListItemViewModel] {get set}
+    var updateBookList : (() -> ()) {get set}
 }
 
 
 class BookListViewModel {
     //Use the UseCase to perform BusinessLogics
     private let useCase : BookListUseCase
+    
+    var items: [BookListItemViewModel]  = [BookListItemViewModel]()
+    var updateBookList : (() -> ()) = { }
     
     init(useCase : BookListUseCase){
         self.useCase = useCase
@@ -37,7 +42,11 @@ class BookListViewModel {
 extension BookListViewModel : BookListViewModelInput {
     func loadBookList() {
         useCase.execute { result in
+            self.items = result.map({ bookListModel in
+                BookListItemViewModel(title: bookListModel.title, year: bookListModel.year)
+            })
             print(result.count)
+            self.updateBookList()
         }
     }
 }

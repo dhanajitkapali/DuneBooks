@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0163E48C28B5EDA200492686 /* BookListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163E48B28B5EDA200492686 /* BookListItemViewModel.swift */; };
 		01F0051D28B4FC6700B82BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0051C28B4FC6700B82BDB /* AppDelegate.swift */; };
 		01F0051F28B4FC6700B82BDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0051E28B4FC6700B82BDB /* SceneDelegate.swift */; };
 		01F0052128B4FC6700B82BDB /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F0052028B4FC6700B82BDB /* BookListViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0163E48B28B5EDA200492686 /* BookListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListItemViewModel.swift; sourceTree = "<group>"; };
 		01F0051928B4FC6700B82BDB /* DuneBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuneBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F0051C28B4FC6700B82BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F0051E28B4FC6700B82BDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				01F0054128B4FDE900B82BDB /* BookListViewModel.swift */,
+				0163E48B28B5EDA200492686 /* BookListItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F0054F28B4FF9000B82BDB /* BookListUseCase.swift in Sources */,
+				0163E48C28B5EDA200492686 /* BookListItemViewModel.swift in Sources */,
 				01F0055C28B5007000B82BDB /* BookListResponseDTO.swift in Sources */,
 				01F0055628B5000700B82BDB /* DefaultBookListRepository.swift in Sources */,
 				01F0054828B4FE9600B82BDB /* ConstantsForNetworking.swift in Sources */,

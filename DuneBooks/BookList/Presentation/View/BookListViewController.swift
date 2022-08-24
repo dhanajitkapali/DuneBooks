@@ -26,9 +26,11 @@ extension BookListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "Book List"
         
         viewModel = BookListViewModel()
         bookListTableView.dataSource = self
+        bookListTableView.delegate = self
         
         viewModel.loadBookList()
         viewModel.updateBookList = {
@@ -56,6 +58,11 @@ extension BookListViewController : UITableViewDelegate, UITableViewDataSource {
     //UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         bookListTableView.deselectRow(at: indexPath, animated: true)
+        
+        let id : String = viewModel.bookListData[indexPath.row].id
+        let bookDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
+        bookDetailViewController.bookId = id
+        self.navigationController?.pushViewController(bookDetailViewController, animated: true)
     }
     
 }

@@ -19,7 +19,7 @@ class DefaultBookListRepository {
 extension DefaultBookListRepository : BookListRepository{
     
     func getBookListData(completion: @escaping (Result<[BookListResponseDTO], Error>) -> Void) {
-        print("Will Get Data From Repository")
+        print("Will Get Book List From Repository")
         let endPoint = BookListAPIEndPoint.getBookListEndPoint()
         networkService?.getAPICall(url: endPoint, parameters: [:], headers: [:], responseClass: [BookListResponseDTO].self, completion: { result in
             switch result{

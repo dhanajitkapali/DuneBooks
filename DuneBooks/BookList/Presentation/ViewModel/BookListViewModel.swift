@@ -25,6 +25,7 @@ class BookListViewModel {
     //Use the UseCase to perform BusinessLogics
     private let useCase : BookListUseCase
     
+    var bookListData : [BookListModel] = [BookListModel]()
     var items: [BookListItemViewModel]  = [BookListItemViewModel]()
     var updateBookList : (() -> ()) = { }
     
@@ -45,7 +46,8 @@ extension BookListViewModel : BookListViewModelInput {
             self.items = result.map({ bookListModel in
                 BookListItemViewModel(title: bookListModel.title, year: bookListModel.year)
             })
-            print(result.count)
+            self.bookListData = result
+            //print(result.count)
             self.updateBookList()
         }
     }

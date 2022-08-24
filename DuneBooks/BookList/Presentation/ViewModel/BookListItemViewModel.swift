@@ -9,6 +9,5 @@ import Foundation
 
 struct BookListItemViewModel {
     let title : String
-    //let author: String
     let year : String
 }

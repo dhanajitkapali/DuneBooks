@@ -10,10 +10,5 @@ import Foundation
 struct BookListModel {
     let id : String
     let title : String
-    //let author: String
     let year : String
-}
-
-struct Book {
-    
 }

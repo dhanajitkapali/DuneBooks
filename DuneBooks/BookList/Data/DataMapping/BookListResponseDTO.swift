@@ -11,11 +11,5 @@ struct BookListResponseDTO : Codable{
     let id : String
     let title : String
     let year: String
-    //let author: [String]
     let wiki_url: String
-
-//    enum CodingKeys: String, CodingKey {
-//        case id, title, year, author
-//        case wikiURL
-//    }
 }

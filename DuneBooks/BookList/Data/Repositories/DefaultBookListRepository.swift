@@ -18,13 +18,16 @@ class DefaultBookListRepository {
 
 extension DefaultBookListRepository : BookListRepository{
     
-    func getBookListData(completion: @escaping (Result<[BookListResponseDTO], Error>) -> Void) {
+    func getBookListData(completion: @escaping (Result<[BookListModel], Error>) -> Void) {
         print("Will Get Book List From Repository")
         let endPoint = BookListAPIEndPoint.getBookListEndPoint()
         networkService?.getAPICall(url: endPoint, parameters: [:], headers: [:], responseClass: [BookListResponseDTO].self, completion: { result in
             switch result{
             case .success(let dataModel):
-                completion(.success(dataModel))
+                let bookListModel = dataModel.map { theDataModel in
+                    BookListModel(id: theDataModel.id, title: theDataModel.title, year: theDataModel.year)
+                }
+                completion(.success(bookListModel))
                 //print(dataModel)
             case .failure(let error):
                 completion(.failure(error))
